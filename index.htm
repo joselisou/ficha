@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friendly Form - Mobile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .form-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #5cb85c;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #d3d3d3;
+      cursor: not-allowed;
+    }
+
+    button.prev {
+      background-color: #0275d8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <form id="friendlyForm">
+    
+    <div class="form-step active">
+      <div class="form-title">Step 1: Dados Pessoais</div>
+      <div class="input-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="input-group">
+        <label for="sexo">Sexo</label>
+        <select id="sexo" name="sexo" required>
+          <option value="">Selecione...</option>
+          <option value="feminino">Feminino</option>
+          <option value="masculino">Masculino</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="nascimento">Data de Nascimento</label>
+        <input type="date" id="nascimento" name="nascimento" required>
+      </div>
+      <div class="button-group">
+        <button type="button" onclick="nextStep()">Próximo</button>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <div class="form-title">Step 2: Contato</div>
+      <div class="input-group">
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" required>
+      </div>
+      <div class="input-group">
+        <label for="rg">RG</label>
+        <input type="text" id="rg" name="rg" required>
+      </div>
+      <div class="input-group">
+        <label for="endereco">Endereço</label>
+        <input type="text" id="endereco" name="endereco" required>
+      </div>
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" required>
+      </div>
+      <div class="button-group">
+        <button type="button" class="prev" onclick="prevStep()">Voltar</button>
+        <button type="button" onclick="nextStep()">Próximo</button>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <div class="form-title">Step 3: Informações Preventivas</div>
+      <div class="input-group">
+        <label for="alergia">Alergia</label>
+        <input type="text" id="alergia" name="alergia">
+      </div>
+      <div class="input-group">
+        <label for="gestante">Gestante</label>
+        <select id="gestante" name="gestante">
+          <option value="">Selecione...</option>
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
+      </div>
+      <div class="button-group">
+        <button type="button" class="prev" onclick="prevStep()">Voltar</button>
+        <button type="button" onclick="nextStep()">Próximo</button>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <div class="form-title">Step 4: Confirmação</div>
+      <p>Você autoriza a realização do procedimento e a divulgação em redes sociais?</p>
+      <div class="input-group">
+        <label for="autorizacao">Autorização</label>
+        <select id="autorizacao" name="autorizacao" required>
+          <option value="">Selecione...</option>
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
+      </div>
+      <div class="button-group">
+        <button type="button" class="prev" onclick="prevStep()">Voltar</button>
+        <button type="submit">Enviar</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<script>
+  let currentStep = 0;
+  const steps = document.querySelectorAll('.form-step');
+
+  function nextStep() {
+    if (currentStep < steps.length - 1) {
+      steps[currentStep].classList.remove('active');
+      currentStep++;
+      steps[currentStep].classList.add('active');
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 0) {
+      steps[currentStep].classList.remove('active');
+      currentStep--;
+      steps[currentStep].classList.add('active');
+    }
+  }
+
+  document.getElementById('friendlyForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Formulário enviado com sucesso!');
+    // Aqui você pode fazer o envio do formulário via AJAX ou outro método.
+  });
+</script>
+
+</body>
+</html>
