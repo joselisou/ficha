@@ -11,17 +11,23 @@
         --bs-border-radius: 0;
         --bs-border-radius-sm: 0;
       }
-      h1, h2 {
+      h1, h2, .h2, h3, .h3, legend {
         text-align: center;
       }
       h1 {
         text-transform: uppercase;
+        font-size: 1.5rem;
+      }
+      h2, .h2 {
         font-size: 1.25rem;
       }
-      h2 {
+      legend {
+        font-weight: 500;
+      }
+      h3, .h3, legend {
         font-size: 1rem;
       }
-      .form-label {
+      .form-label, legend {
         margin-bottom: 0;
       }
       .form-control form-control-sm:focus {
@@ -30,6 +36,13 @@
       }
       .form-check-input[type=checkbox] {
         border-radius: 0;
+      }
+      .form-check-inline:last-child {
+        margin-right: 0;
+      }
+      .form-control-sign {
+        border: 0;
+        border-bottom: 1px solid;
       }
       @media (min-width: 992px) {
         .container {
@@ -44,6 +57,7 @@
       @media print {
         body {
           color: black;
+          font-size: 14px;
         }
         .container {
           --px: 0;
@@ -51,7 +65,7 @@
           padding-right: var(--px);
           padding-left: var(--px);
         }
-        .col-md {
+        .col-sm {
           flex: 1 0 0%;
         }
       }
@@ -62,288 +76,320 @@
       <h1>Ficha de Atendimento</h1>
       <form action="">
         <h2>Dados pessoais</h2>
-        <div class="row g-2">
-          <div class="col-md mb-1">
+        <div class="row g-1">
+          <div class="col-sm mb-1">
             <label for="exampleFormControlInput1" class="form-label">Nome</label>
             <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1">
           </div>
-          <div class="col-md mb-1">
+          <div class="col-sm mb-1">
             <label for="exampleFormControlInput2" class="form-label">Sobrenome</label>
             <input type="text" class="form-control form-control-sm" id="exampleFormControlInput2">
           </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label class="form-label">Sexo</label>
+          <div class="col-sm-auto mb-1 d-flex align-items-end">
+            <label class="form-label visually-hidden">Sexo</label>
             <div>
-              <div class="form-check form-check-inline">
+              <div class="form-check">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Feminino</label>
               </div>
-              <div class="form-check form-check-inline">
+              <div class="form-check form-check-inline mb-0">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Masculino</label>
               </div>
             </div>
           </div>
-          <div class="col-md mb-1">
+        </div>
+        <div class="row g-1">
+          <div class="col-sm mb-1">
             <label for="exampleFormControlInput4" class="form-label">Data de nascimento</label>
             <input type="date" class="form-control form-control-sm" id="exampleFormControlInput4">
           </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
+          <div class="col-sm mb-1">
             <label for="exampleFormControlInput5" class="form-label">CPF</label>
             <input type="text" class="form-control form-control-sm" id="exampleFormControlInput5" placeholder="000.000.000-00">
           </div>
-          <div class="col-md mb-1">
+          <div class="col-sm mb-1">
             <label for="exampleFormControlInput6" class="form-label">RG</label>
             <input type="text" class="form-control form-control-sm" id="exampleFormControlInput6" placeholder="0.000.000">
           </div>
         </div>
-        <div class="mb-1">
-          <label for="exampleFormControlInput7" class="form-label">Endereço</label>
-          <input type="text" class="form-control form-control-sm" id="exampleFormControlInput7">
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput8" class="form-label">Cidade</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput8">
-          </div>
-          <div class="col-md mb-1">
+        <div class="row g-1">
+          <div class="col-sm-auto mb-1">
             <label for="exampleFormControlInput9" class="form-label">Telefone</label>
             <input type="text" class="form-control form-control-sm" id="exampleFormControlInput9" placeholder="(00) 0 0000-0000">
           </div>
+          <div class="col-sm mb-1">
+            <label for="exampleFormControlInput10" class="form-label">E-mail</label>
+            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput10 ">
+          </div>
         </div>
-        <div class="mb-1">
-          <label for="exampleFormControlInput10" class="form-label">E-mail</label>
-          <input type="text" class="form-control form-control-sm" id="exampleFormControlInput10 ">
+        <div class="row g-1 mb-2">
+          <div class="col-sm mb-1">
+            <label for="exampleFormControlInput7" class="form-label">Endereço</label>
+            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput7">
+          </div>
+          <div class="col-sm-4 mb-1">
+            <label for="exampleFormControlInput8" class="form-label">Cidade</label>
+            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput8">
+          </div>
         </div>
-        <div class="mb-1">
-          <label for="exampleFormControlInput11" class="form-label">Como nos conheceu</label>
+        <div class="mb-3">
+          <label for="exampleFormControlInput11" class="form-label h2 d-block">Como nos conheceu</label>
           <input type="text" class="form-control form-control-sm" id="exampleFormControlInput11 ">
         </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput12" class="form-label">Em caso de emergência avisar</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput12">
-          </div>
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput13" class="form-label">Telefone</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput13" placeholder="(00) 0 0000-0000">
-          </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput14" class="form-label">Convênio médico</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput14">
-          </div>
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput15" class="form-label">Data do procedimento</label>
-            <input type="date" class="form-control form-control-sm" id="exampleFormControlInput15">
-          </div>
-        </div>
-        <div class="mb-1">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
-            <label class="form-check-label" for="inlineRadio3">Cliente</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
-            <label class="form-check-label" for="inlineRadio4">Modelo</label>
-          </div>
-        </div>
-        <h2>Informações preventivas - Assinale. Se positivo, descreva:</h2>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Alergia</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+        <h2>Informação preventiva e Legal</h2>
+        <div class="row g-3">
+          <div class="col-sm-auto mb-2">
+            <h3>Declaração de saúde<br> <small class="text-secondary fw-normal">Assinale <b>Sim</b> ou <b>Não</b>. Se <b>Sim</b>, descreva no verso.</small></h3>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Alergia</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
               </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Gestante</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Lactante</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Diabetes</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Hipertensão</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Anemia</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Hemofilia</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Glaucoma</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Marca-passo</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Roacutan</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Medicações de uso contínuo</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Usa de ácido ou cosméticos</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Doenças em geral</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Usa de bebida alcoólica</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Usa de cigarro ou entorpecentes</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <label for="exampleFormControlInput15" class="col-auto">Outros</label>
+              <div class="col-auto">
+                <div class="form-check form-check-inline me-2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+                  <label class="form-check-label" for="inlineRadio3">Sim</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+                  <label class="form-check-label" for="inlineRadio4">Não</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm d-flex flex-column mb-2">
+            <h3>Contato de emergência</h3>
+            <div class="row g-1 mb-2">
+              <div class="col-sm-5 mb-1">
+                <label for="exampleFormControlInput13" class="form-label">Telefone</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput13" placeholder="(00) 0 0000-0000">
+              </div>
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput12" class="form-label">Nome</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput12">
+              </div>
+            </div>
+            <div class="row g-1 mt-auto mb-2">
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput14" class="form-label h3 d-block">Convênio médico</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput14">
+              </div>
+            </div>
+            <h3 class="col-sm-auto mt-auto">Informações Complementares e Termo de Responsabilidade</h3>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Com base no procedimento explicado pela profissional, autorizo a realização do procedimento de protocolo de crescimento de pelos <b>SENSEBROWS</b>, bem como a captura de foto.
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Declaro que são verdadeiras as informações na <b>Declaração de Saúde</b> e, independentemente de serem positivas ou negativas, confirmo o meu desejo de executar o trabalho do protocolo de crescimento de pelos <b>SENSEBROWS</b> com a profissional.
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Assumo a responsabilidade nos procedimentos <b>SENSEBROWS</b>, pois confirmo que seguirei as instruções informadas ao término do procedimento e me passadas de forma escrita.
+              </label>
             </div>
           </div>
         </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Gestante</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Lactante</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Diabetes</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Hipertensão</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Anemia</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Hemofilia</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Glaucoma</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Marca-passo</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Roacutan</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Medicações de uso contínuo</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Faz uso de ácido ou cosméticos</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Doença de pele</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Doenças em geral</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Faz uso de bebida alcoólica, cigarro ou entorpecentes</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Não apresento nenhuma doença listada acima</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <label for="exampleFormControlInput15" class="col-auto col-form-label">Outros</label>
-          <div class="col-auto">
-            <div class="input-group">
-              <div class="input-group-text">
-                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-              </div>
-              <input type="text" class="form-control form-control-sm" aria-label="Text input with checkbox">
-            </div>
-          </div>
-        </div>
-        <h2>Informações Complementares e Termo de Responsabilidade</h2>
-        <p>Com base no procedimento explicado pela profissional, autorizo a realização do procedimento de protocolo de crescimento de pelos <b>SENSEBROWS</b>, bem como a foto e divulgação em redes sociais e demais materiais de divulgação.</p>
-        <p>Declaro que são verdadeiras as informações acima e, independentemente de serem positivas ou negativas, confirmo o meu desejo de executar o trabalho do protocolo de crescimento de pelos <b>SENSEBROWS</b> com a profissional.</p>
-        <p>Assumo a responsabilidade nos procedimentos <b>SENSEBROWS</b>, pois confirmo que seguirei as instruções informadas ao término do procedimento e me passadas de forma escrita.</p>
+        <h3>Renuncia ao teste de sensibilidade e Autorização de divulgação</h3>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
           <label class="form-check-label" for="flexCheckDefault">
@@ -356,100 +402,135 @@
             Autorizo a divulgação do resultado do meu procedimento em redes sociais e demais materiais de divulgação.
           </label>
         </div>
-        <p>Certifico que todos os itens acima me foram expostos e que não ficou nenhuma dúvida quanto ao seu conteúdo e objetivo. Assim sendo, firmo a presente autorização.</p>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput16" class="form-label text-center d-block">Assinatura conforme o documento</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput16">
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Certifico que todos os itens acima me foram expostos e que não ficou nenhuma dúvida quanto ao seu conteúdo e objetivo. Assim sendo, firmo a presente autorização.
+          </label>
+        </div>
+        <div class="row g-1">
+          <div class="col-sm-5 mb-1 mx-auto">
+            <label for="exampleFormControlInput16" class="form-label text-center d-block visually-hidden">Assinatura</label>
+            <input type="text" class="form-control form-control-sm form-control-sign" id="exampleFormControlInput16">
+            <div class="form-text text-center text-body">
+              Assinatura conforme o documento
+            </div>
           </div>
         </div>
-        <h2>Procedimento Executado (Para preenchimento do profissional)</h2>
-        <div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option1">
-            <label class="form-check-label" for="inlineRadio5">Nanofios</label>
+        <hr>
+        <h2>Para preenchimento do profissional</h2>
+        <div class="row g-1">
+          <div class="col-sm mb-2">
+            <div class="text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option1">
+                <label class="form-check-label" for="inlineRadio5">Nanofios</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option2">
+                <label class="form-check-label" for="inlineRadio6">Brow Lamination</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7" value="option3">
+                <label class="form-check-label" for="inlineRadio7">Protocolo de Crescimento</label>
+              </div>
+            </div>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option2">
-            <label class="form-check-label" for="inlineRadio6">Brow Lamination</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7" value="option3">
-            <label class="form-check-label" for="inlineRadio7">Protocolo de Crescimento</label>
-          </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput17" class="form-label">Já tinha trabalho anterior?</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput17">
-          </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput18" class="form-label">Trabalho proposto</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput18">
-          </div>
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput19" class="form-label">Técnica</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput19">
-          </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput20" class="form-label">Agulha utilizada</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput20">
-          </div>
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput21" class="form-label">Anestésico utilizado</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput21">
+          <div class="col-sm-auto md-2">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1">
+              <label class="form-check-label" for="inlineRadio3">Cliente</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option2">
+              <label class="form-check-label" for="inlineRadio4">Modelo</label>
+            </div>
           </div>
         </div>
         <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput22" class="form-label">Presença de sangue</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput22">
+          <div class="col-sm">
+            <h3>Procedimento Executado</h3>
+            <div class="row g-1">
+              <div class="col-sm-5 mb-1">
+                <label for="exampleFormControlInput15" class="form-label">Data do procedimento</label>
+                <input type="date" class="form-control form-control-sm" id="exampleFormControlInput15">
+              </div>
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput17" class="form-label">Já tinha trabalho anterior?</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput17">
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput18" class="form-label">Trabalho proposto</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput18">
+              </div>
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput19" class="form-label">Técnica</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput19">
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput20" class="form-label">Agulha utilizada</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput20">
+              </div>
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput21" class="form-label">Anestésico utilizado</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput21">
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput22" class="form-label">Presença de sangue</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput22">
+              </div>
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput23" class="form-label">Pigmento utilizado</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput23">
+              </div>
+            </div>
           </div>
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput23" class="form-label">Pigmento utilizado</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput23">
+          <div class="col-sm">
+            <h3>Retoque / 2ª Sessão</h3>
+            <div class="row g-1">
+              <div class="col-sm-5 mb-1">
+                <label for="exampleFormControlInput24" class="form-label">Data</label>
+                <input type="date" class="form-control form-control-sm" id="exampleFormControlInput24">
+              </div>
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput25" class="form-label">Alguma alteração na anamnese?</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput25">
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput26" class="form-label">Fixação</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput26">
+              </div>
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput27" class="form-label">Técnica</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput27">
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput28" class="form-label">Lâminas</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput28">
+              </div>
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput29" class="form-label">Anestésico</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput29">
+              </div>
+            </div>
+            <div class="row g-1">
+              <div class="col-sm mb-1">
+                <label for="exampleFormControlInput30" class="form-label">Produto utilizado</label>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput30">
+              </div>
+            </div>
           </div>
         </div>
-        <h2>Retoque / 2ª Sessão (Preenchimento pelo Profissional)</h2>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput24" class="form-label">Data</label>
-            <input type="date" class="form-control form-control-sm" id="exampleFormControlInput24">
-          </div>
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput25" class="form-label">Alguma alteração na anamnese?</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput25">
-          </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput26" class="form-label">Fixação</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput26">
-          </div>
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput27" class="form-label">Técnica</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput27">
-          </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput28" class="form-label">Lâminas</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput28">
-          </div>
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput29" class="form-label">Anestésico</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput29">
-          </div>
-        </div>
-        <div class="row g-2">
-          <div class="col-md mb-1">
-            <label for="exampleFormControlInput30" class="form-label">Produto utilizado</label>
-            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput30">
-          </div>
       </form>
     </div>
   </body>
