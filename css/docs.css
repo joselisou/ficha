@@ -11,7 +11,7 @@
   display: grid;
   grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
   grid-template-columns: repeat(var(--bs-columns, 12), 1fr);
-  gap: var(--bs-gap, 2.875rem);
+  gap: var(--bs-gap, 3rem);
 }
 .grid .g-col-1 {
   grid-column: auto/span 1;
