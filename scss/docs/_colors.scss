@@ -1,0 +1,51 @@
+//
+// Docs color palette classes
+//
+
+@each $color, $value in $colors {
+    .swatch-#{$color} {
+      color: color-contrast($value);
+      background-color: #{$value};
+  
+      &::after {
+        $contrast-ratio: "#{contrast-ratio($value, color-contrast($value))}";
+        $against-white: "#{contrast-ratio($value, $white)}";
+        $against-black: "#{contrast-ratio($value, $black)}";
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding-left: 1rem;
+        font-size: .75rem;
+        line-height: 1.35;
+        white-space: pre;
+        content:
+          str-slice($contrast-ratio, 1, 4) "\A"
+          str-slice($against-white, 1, 4) "\A"
+          str-slice($against-black, 1, 4);
+        background-color: $value;
+        background-image:
+          linear-gradient(
+            to bottom,
+            transparent .25rem,
+            color-contrast($value) .25rem .75rem,
+            transparent .75rem 1.25rem,
+            $white 1.25rem 1.75rem,
+            transparent 1.75rem 2.25rem,
+            $black 2.25rem 2.75rem,
+            transparent 2.75rem
+          );
+        background-repeat: no-repeat;
+        background-size: .5rem 100%;
+      }
+    }
+}
+
+.bd-rose-100 { color: color-contrast($rose-100); background-color: $rose-100; }
+.bd-rose-200 { color: color-contrast($rose-200); background-color: $rose-200; }
+.bd-rose-300 { color: color-contrast($rose-300); background-color: $rose-300; }
+.bd-rose-400 { color: color-contrast($rose-400); background-color: $rose-400; }
+.bd-rose-500 { color: color-contrast($rose-500); background-color: $rose-500; }
+.bd-rose-600 { color: color-contrast($rose-600); background-color: $rose-600; }
+.bd-rose-700 { color: color-contrast($rose-700); background-color: $rose-700; }
+.bd-rose-800 { color: color-contrast($rose-800); background-color: $rose-800; }
+.bd-rose-900 { color: color-contrast($rose-900); background-color: $rose-900; }

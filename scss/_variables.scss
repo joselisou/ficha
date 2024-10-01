@@ -1,0 +1,71 @@
+$tapestry: #b25a7c !default;
+$eletric-violet: #820ad1 !default;
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+$blue:    #0d6efd !default;
+$indigo:  #6610f2 !default;
+$purple:  $eletric-violet !default;
+$rose:    $tapestry !default;
+$pink:    #d63384 !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #198754 !default;
+$teal:    #20c997 !default;
+$cyan:    #0dcaf0 !default;
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "rose":       $rose,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "black":      $black,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800
+) !default;
+$rose-100: tint-color($rose, 80%) !default;
+$rose-200: tint-color($rose, 60%) !default;
+$rose-300: tint-color($rose, 40%) !default;
+$rose-400: tint-color($rose, 20%) !default;
+$rose-500: $rose !default;
+$rose-600: shade-color($rose, 20%) !default;
+$rose-700: shade-color($rose, 40%) !default;
+$rose-800: shade-color($rose, 60%) !default;
+$rose-900: shade-color($rose, 80%) !default;
+$primary: $tapestry !default;
+$variable-prefix: bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
+$prefix: $variable-prefix !default;
+$input-btn-padding-y: .375rem !default;
+$input-btn-padding-x: .75rem !default;
+$font-family-sans-serif: Graphik, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$grid-gutter-width: 2.25rem !default;
+$font-size-base: 1rem !default;
+$font-size-sm: $font-size-base * .6875 !default;
+$line-height-sm: 1.36363636 !default;
+$btn-padding-y: .625rem !default;
+$btn-padding-x: 1.25rem !default;
+$btn-font-size: $font-size-sm !default;
+$btn-line-height: $line-height-sm !default;
+$input-btn-border-width: var(--#{$prefix}border-width) !default;
+$btn-border-width: $input-btn-border-width !default;
+$btn-height-border: calc(#{$btn-border-width} * 2) !default;
+$btn-height: add($btn-line-height * 1em, add($btn-padding-y * 2, $btn-height-border, false)) !default;
+$btn-border-radius: calc(#{$btn-height} * 2) !default;
+
+@import "../node_modules/bootstrap/scss/variables";
