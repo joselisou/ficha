@@ -11,37 +11,72 @@
     <div class="container">
       <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-7 mx-auto">
         <p class="pb-1 mb-2">
-          <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#startModal">
-            Começar
+          <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#startModal" data-i18n>
+            Start
           </button>
         </p>
       </div>
     </div>
   </main>
-  <footer class="footer mt-auto py-4">
-  </footer>
+  <footer class="footer mt-auto py-4"></footer>
+
   <!-- Modal -->
   <div class="modal fade" id="startModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="startModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5 visually-hidden" id="startModalLabel">Dados pessoais</h1>
+          <h1 class="modal-title fs-5 visually-hidden" id="startModalLabel" data-i18n>Personal data</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <label class="form-label">Digite seu novo endereço de e-mail</label>
-          <div class="form-text">Enviaremos um link de confirmação para o seu novo endereço de e-mail</div>
-          <input type="text" class="form-control">
+          <label class="form-label" for="email" data-i18n>Enter your new email address</label>
+          <div class="form-text" data-i18n>
+            We'll send a confirmation link to your new email address
+          </div>
+          <input type="email" class="form-control" id="email">
         </div>
         <div class="modal-footer modal-footer-float">
           <button type="button" class="btn btn-primary btn-circle">
             <i class="ji ji-arrow-right"></i>
-            <span class="visually-hidden">Avançar</span>
+            <span class="visually-hidden" data-i18n>Next</span>
           </button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Script to handle i18n -->
+  <script>
+    // Automatically execute translation logic after DOM is loaded
+    document.addEventListener("DOMContentLoaded", () => {
+      // Define translations for multiple languages (currently only Portuguese)
+      const translations = {
+        pt: {
+          "Start": "Começar",
+          "Personal data": "Dados pessoais",
+          "Enter your new email address": "Digite seu novo endereço de e-mail",
+          "We'll send a confirmation link to your new email address": "Enviaremos um link de confirmação para o seu novo endereço de e-mail",
+          "Next": "Avançar"
+        }
+      };
+
+      // Detect the browser's language
+      const lang = navigator.language.split('-')[0]; // Simplified to get only the language code (e.g., 'pt', 'en')
+
+      // Change the lang attribute of the <html> tag
+      document.documentElement.setAttribute("lang", lang);
+
+      // Iterate over elements with data-i18n attribute and replace text
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const originalText = el.textContent.trim();  // Get the original text
+        const translation = translations[lang] ? translations[lang][originalText] : null;
+        if (translation) {
+          el.textContent = translation;  // Replace if a translation exists
+        }
+      });
+    });
+  </script>
+
   <script src="js/bootstrap.bundle.js"></script>
 </body>
 </html>
