@@ -1,0 +1,15 @@
+@import "../node_modules/bootstrap/scss/buttons";
+
+.btn-circle {
+  --#{$prefix}btn-font-size: 1rem;
+  --#{$prefix}btn-line-height: 1.5;
+  --#{$prefix}btn-padding-x: 1.1875rem;
+}
+
+.btn:disabled,
+.btn.disabled,
+fieldset:disabled .btn {
+  --#{$prefix}btn-disabled-bg: #{$black};
+  --#{$prefix}btn-disabled-border-color: #{$black};
+  --#{$prefix}btn-disabled-opacity: .07;
+}

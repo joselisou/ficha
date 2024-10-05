@@ -1,17 +1,17 @@
 :root {
-  --bs-breakpoint-xs: 0;
-  --bs-breakpoint-sm: 576px;
-  --bs-breakpoint-md: 768px;
-  --bs-breakpoint-lg: 992px;
-  --bs-breakpoint-xl: 1200px;
-  --bs-breakpoint-xxl: 1400px;
+  --js-breakpoint-xs: 0;
+  --js-breakpoint-sm: 576px;
+  --js-breakpoint-md: 768px;
+  --js-breakpoint-lg: 992px;
+  --js-breakpoint-xl: 1200px;
+  --js-breakpoint-xxl: 1400px;
 }
 
 .grid {
   display: grid;
-  grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
-  grid-template-columns: repeat(var(--bs-columns, 12), 1fr);
-  gap: var(--bs-gap, 3rem);
+  grid-template-rows: repeat(var(--js-rows, 1), 1fr);
+  grid-template-columns: repeat(var(--js-columns, 12), 1fr);
+  gap: var(--js-gap, 3rem);
 }
 .grid .g-col-1 {
   grid-column: auto/span 1;

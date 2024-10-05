@@ -1,0 +1,7 @@
+@import "../node_modules/bootstrap/scss/close";
+
+.btn-close:focus {
+  --#{$prefix}btn-close-focus-opacity: #{$btn-close-opacity };
+
+  box-shadow: none;
+}

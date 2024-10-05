@@ -1,0 +1,36 @@
+$joselisouza-icons-font: "joselisouza-icons" !default;
+$joselisouza-icons-font-dir: "../fonts/joselisouza-icons" !default;
+$joselisouza-icons-font-file: "#{$joselisouza-icons-font-dir}/#{$joselisouza-icons-font}" !default;
+$joselisouza-icons-font-hash: "34adfdfa74752d445571cf2098aa8053" !default;
+$joselisouza-icons-font-src: url("#{$joselisouza-icons-font-file}.woff2?#{$joselisouza-icons-font-hash}") format("woff2"),
+                           url("#{$joselisouza-icons-font-file}.woff?#{$joselisouza-icons-font-hash}") format("woff") !default;
+
+@font-face {
+  font-display: block;
+  font-family: $joselisouza-icons-font;
+  src: $joselisouza-icons-font-src;
+}
+
+.ji::before,
+[class^="ji-"]::before,
+[class*=" ji-"]::before {
+  display: inline-block;
+  font-family: $joselisouza-icons-font !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$joselisouza-icons-map: (
+  "arrow-right": "\f138",
+  "x": "\f62a",
+);
+
+@each $icon, $codepoint in $joselisouza-icons-map {
+  .ji-#{$icon}::before { content: $codepoint; }
+}

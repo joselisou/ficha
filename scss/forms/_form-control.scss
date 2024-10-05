@@ -1,0 +1,13 @@
+@import "../../node_modules/bootstrap/scss/forms/form-control";
+
+.form-control {
+
+  &,
+  &:focus {
+    border-color: transparent transparent $input-border-color;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
