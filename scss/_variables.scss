@@ -49,6 +49,7 @@ $rose-700: shade-color($rose, 40%) !default;
 $rose-800: shade-color($rose, 60%) !default;
 $rose-900: shade-color($rose, 80%) !default;
 $primary: $tapestry !default;
+$danger: $red !default;
 $prefix: js- !default;
 $input-btn-padding-y: .375rem !default;
 $input-btn-padding-x: .75rem !default;
@@ -86,8 +87,31 @@ $input-font-size: 1.125rem !default;
 $input-font-weight: $font-weight-medium !default;
 $input-padding-y: .6875rem !default;
 $form-text-margin-top: 1.9375rem !default;
+$form-feedback-margin-top: .25rem !default;
 $form-text-margin-bottom: $form-text-margin-top !default;
 $modal-backdrop-opacity: .6 !default;
 $input-focus-box-shadow: null !default;
+$focus-ring-width: .25rem !default;
+$focus-ring-opacity: .25 !default;
+$input-btn-focus-width: $focus-ring-width !default;
+$input-focus-width: $input-btn-focus-width !default;
+$focus-ring-blur: 0 !default;
+$input-btn-focus-blur: $focus-ring-blur !default;
+$form-feedback-invalid-color: $danger !default;
+$form-feedback-icon-invalid-color: $form-feedback-invalid-color !default;
+$input-btn-focus-color-opacity: $focus-ring-opacity !default;
+$form-feedback-font-size: .75rem !default;
+$form-feedback-font-weight: $font-weight-medium !default;
+$form-feedback-icon-invalid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>") !default;
+$form-validation-states: (
+  "invalid": (
+    "color": var(--#{$prefix}form-invalid-color),
+    "icon": $form-feedback-icon-invalid,
+    "tooltip-color": #fff,
+    "tooltip-bg-color": var(--#{$prefix}danger),
+    "focus-box-shadow": null,
+    "border-color": var(--#{$prefix}form-invalid-border-color),
+  )
+) !default;
 
 @import "../node_modules/bootstrap/scss/variables";
