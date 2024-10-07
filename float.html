@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard e Safe Area</title>
+  <style>
+    body, html {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    button {
+      position: relative;
+      padding: 10px 20px;
+      margin-bottom: env(safe-area-inset-bottom, 0);
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton">My Button</button>
+
+  <script>
+    function adjustForKeyboard() {
+      const button = document.getElementById('myButton');
+      const windowHeight = window.innerHeight;
+
+      // Adjusts the button position if the window is resized (e.g. keyboard appears)
+      window.addEventListener('resize', () => {
+        if (window.innerHeight < windowHeight) {
+          button.style.position = 'absolute';
+          button.style.bottom = '20px'; // Adjust as needed
+        } else {
+          button.style.position = 'relative';
+        }
+      });
+    }
+
+    window.onload = adjustForKeyboard;
+  </script>
+</body>
+</html>
