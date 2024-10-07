@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      line-height: 1;
+    }
+    .ratio {
+      --py: 1rem;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: var(--py);
+      padding-bottom: var(--py);
+    }
+    [class^="ratio-"] {
+      --mx: auto;
+      background-color: #000;
+      color: #fff;
+      margin-right: var(--mx);
+      margin-left: var(--mx);
+    }
+    .ratio-rem,
+    .ratio-mx-rem {
+      width: 20rem;
+      height: 6rem;
+      font-size: 2rem;
+      padding: 2rem;
+    }
+    .ratio-px,
+    .ratio-mx-px {
+      width: 320px;
+      height: 96px;
+      font-size: 32px;
+      padding: 32px;
+    }
+    .ratio-vwh,
+    .ratio-mx-vwh {
+      --px: 5.66371681vw;
+      --py: 2.58064516vh;
+      width: 56.6371681vw;
+      height: 7.74193548vh;
+      font-size: 5.66371681vw;
+      padding: var(--py) var(--px);
+    }
+    [class^="ratio-mx-"] {
+      --w: calc(100% - var(--mx) * 2);
+      width: var(--w);
+      margin-right: var(--mx);
+      margin-left: var(--mx);
+    }
+    .ratio-mx-rem {
+      --mx: 2rem;
+    }
+    .ratio-mx-px {
+      --mx: 32px;
+    }
+    .ratio-mx-vwh {
+      --mx: 5.66371681vw;
+    }
+  </style>
+</head>
+<body>
+  <main class="ratio">
+    <!-- REM 320px (20rem) X 64px (4rem) -->
+    <div class="ratio-rem">0</div>
+    <!-- PX 320px X 64px -->
+    <div class="ratio-px">0</div>
+    <!-- VW-VH 320px () X 64px () -->
+    <div class="ratio-vwh">0</div>
+    <!-- FULL REM MX-32px (2rem) -->
+    <div class="ratio-mx-rem">0</div>
+    <!-- FULL PX MX-32px (2rem) -->
+    <div class="ratio-mx-px">0</div>
+    <!-- FULL VW-VH MX-32px () -->
+    <div class="ratio-mx-vwh">0</div>
+  </main>
+</body>
+</html>
