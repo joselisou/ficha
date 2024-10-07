@@ -1,6 +1,9 @@
 @import "../../node_modules/bootstrap/scss/forms/form-control";
 
 .form-control {
+  --#{$prefix}caret-color: #{$primary};
+
+  caret-color: var(--#{$prefix}caret-color);
 
   &,
   &:focus {

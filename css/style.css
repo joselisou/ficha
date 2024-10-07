@@ -2264,6 +2264,10 @@ textarea.form-control-lg {
   height: calc(1.33333333em + 1rem + calc(var(--js-border-width) * 2));
 }
 
+.form-control {
+  --js-caret-color: #b25a7c;
+  caret-color: var(--js-caret-color);
+}
 .form-control, .form-control:focus {
   border-color: transparent transparent var(--js-border-color);
 }
