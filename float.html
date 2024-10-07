@@ -5,23 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keyboard e Safe Area</title>
   <style>
-    body, html {
-      height: 100vh;
+    body, html, .float {
+      height: calc(100vh - env(safe-area-inset-bottom, 0));
       margin: 0;
+    }
+
+    .float {
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     button {
       position: relative;
       padding: 10px 20px;
-      margin-bottom: env(safe-area-inset-bottom, 0);
     }
   </style>
 </head>
 <body>
-  <button id="myButton">My Button</button>
+  <main class="float">
+    <input type="text">
+    <button id="myButton">My Button</button>
+  </main>
 
   <script>
     function adjustForKeyboard() {
