@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keyboard e Safe Area</title>
   <style>
+    :root {
+      --safe-area-inset-bottom: 5vh;
+    }
     body, html, .float {
-      height: calc(100vh - env(safe-area-inset-bottom, 0));
+      /* height: calc(100vh - env(safe-area-inset-bottom, 0)); */
+      height: calc(100vh - var(--safe-area-inset-bottom));
       margin: 0;
     }
 
