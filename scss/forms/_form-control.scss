@@ -1,9 +1,12 @@
 @import "../../node_modules/bootstrap/scss/forms/form-control";
 
 .form-control {
+  --border-x: 0;
   --#{$prefix}caret-color: #{$primary};
 
   caret-color: var(--#{$prefix}caret-color);
+  border-right-width: var(--border-x);
+  border-left-width: var(--border-x);
 
   &,
   &:focus {
