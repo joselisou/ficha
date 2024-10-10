@@ -17,3 +17,9 @@
     box-shadow: none;
   }
 }
+
+.form-check-input {
+  --#{$prefix}accent-color: #{$primary};
+
+  accent-color: var(--#{$prefix}accent-color);
+}
