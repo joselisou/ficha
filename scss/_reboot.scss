@@ -1,0 +1,7 @@
+@import "../node_modules/bootstrap/scss/reboot";
+
+html {
+  @include media-breakpoint-down(sm) {
+    font-size: 5.55555556vw;
+  }
+}

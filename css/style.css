@@ -67,13 +67,13 @@
   --js-dark-border-subtle: #adb5bd;
   --js-white-rgb: 255, 255, 255;
   --js-black-rgb: 0, 0, 0;
-  --js-font-sans-serif: Graphik, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --js-font-sans-serif: Graphik, Montserrat, Poppins, "Work Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --js-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --js-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --js-body-font-family: var(--js-font-sans-serif);
   --js-body-font-size: 1rem;
   --js-body-font-weight: 400;
-  --js-body-line-height: 1.33333333;
+  --js-body-line-height: 1.5;
   --js-body-color: #212529;
   --js-body-color-rgb: 33, 37, 41;
   --js-body-bg: #fff;
@@ -97,7 +97,7 @@
   --js-code-color: #d63384;
   --js-highlight-color: #212529;
   --js-highlight-bg: #fff3cd;
-  --js-border-width: 1px;
+  --js-border-width: 2px;
   --js-border-style: solid;
   --js-border-color: #dee2e6;
   --js-border-color-translucent: rgba(0, 0, 0, 0.175);
@@ -582,6 +582,12 @@ progress {
 
 [hidden] {
   display: none !important;
+}
+
+@media (max-width: 575.98px) {
+  html {
+    font-size: 5.55555556vw;
+  }
 }
 
 .lead {
@@ -2088,7 +2094,7 @@ progress {
   margin-bottom: 0;
   font-size: inherit;
   font-weight: 500;
-  line-height: 1.33333333;
+  line-height: 1.5;
 }
 
 .col-form-label-lg {
@@ -2121,7 +2127,7 @@ progress {
   padding: 0.6875rem 0;
   font-size: 1.125rem;
   font-weight: 500;
-  line-height: 1.33333333;
+  line-height: 1.5;
   color: var(--js-body-color);
   appearance: none;
   background-color: var(--js-body-bg);
@@ -2150,7 +2156,7 @@ progress {
 }
 .form-control::-webkit-date-and-time-value {
   min-width: 85px;
-  height: 1.33333333em;
+  height: 1.5em;
   margin: 0;
 }
 .form-control::-webkit-datetime-edit {
@@ -2193,7 +2199,7 @@ progress {
   width: 100%;
   padding: 0.6875rem 0;
   margin-bottom: 0;
-  line-height: 1.33333333;
+  line-height: 1.5;
   color: var(--js-body-color);
   background-color: transparent;
   border: solid transparent;
@@ -2208,7 +2214,7 @@ progress {
 }
 
 .form-control-sm {
-  min-height: calc(1.33333333em + 0.5rem + calc(var(--js-border-width) * 2));
+  min-height: calc(1.5em + 0.5rem + calc(var(--js-border-width) * 2));
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: var(--js-border-radius-sm);
@@ -2220,7 +2226,7 @@ progress {
 }
 
 .form-control-lg {
-  min-height: calc(1.33333333em + 1rem + calc(var(--js-border-width) * 2));
+  min-height: calc(1.5em + 1rem + calc(var(--js-border-width) * 2));
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   border-radius: var(--js-border-radius-lg);
@@ -2232,18 +2238,18 @@ progress {
 }
 
 textarea.form-control {
-  min-height: calc(1.33333333em + 1.375rem + calc(var(--js-border-width) * 2));
+  min-height: calc(1.5em + 1.375rem + calc(var(--js-border-width) * 2));
 }
 textarea.form-control-sm {
-  min-height: calc(1.33333333em + 0.5rem + calc(var(--js-border-width) * 2));
+  min-height: calc(1.5em + 0.5rem + calc(var(--js-border-width) * 2));
 }
 textarea.form-control-lg {
-  min-height: calc(1.33333333em + 1rem + calc(var(--js-border-width) * 2));
+  min-height: calc(1.5em + 1rem + calc(var(--js-border-width) * 2));
 }
 
 .form-control-color {
   width: 3rem;
-  height: calc(1.33333333em + 1.375rem + calc(var(--js-border-width) * 2));
+  height: calc(1.5em + 1.375rem + calc(var(--js-border-width) * 2));
   padding: 0.6875rem;
 }
 .form-control-color:not(:disabled):not([readonly]) {
@@ -2258,10 +2264,10 @@ textarea.form-control-lg {
   border-radius: 0;
 }
 .form-control-color.form-control-sm {
-  height: calc(1.33333333em + 0.5rem + calc(var(--js-border-width) * 2));
+  height: calc(1.5em + 0.5rem + calc(var(--js-border-width) * 2));
 }
 .form-control-color.form-control-lg {
-  height: calc(1.33333333em + 1rem + calc(var(--js-border-width) * 2));
+  height: calc(1.5em + 1rem + calc(var(--js-border-width) * 2));
 }
 
 .form-control {
@@ -2282,7 +2288,7 @@ textarea.form-control-lg {
   padding: 0.6875rem 0 0.6875rem 0;
   font-size: 1.125rem;
   font-weight: 500;
-  line-height: 1.33333333;
+  line-height: 1.5;
   color: var(--js-body-color);
   appearance: none;
   background-color: var(--js-body-bg);
@@ -2338,7 +2344,7 @@ textarea.form-control-lg {
 
 .form-check {
   display: block;
-  min-height: 1.33333333rem;
+  min-height: 1.5rem;
   padding-left: 1.5em;
   margin-bottom: 0.125rem;
 }
@@ -2363,7 +2369,7 @@ textarea.form-control-lg {
   flex-shrink: 0;
   width: 1em;
   height: 1em;
-  margin-top: 0.166666665em;
+  margin-top: 0.25em;
   vertical-align: top;
   appearance: none;
   background-color: var(--js-form-check-bg);
@@ -2671,7 +2677,7 @@ textarea.form-control-lg {
   padding: 0.6875rem 0;
   font-size: 1.125rem;
   font-weight: 500;
-  line-height: 1.33333333;
+  line-height: 1.5;
   color: var(--js-body-color);
   text-align: center;
   white-space: nowrap;
@@ -2760,19 +2766,19 @@ textarea.form-control-lg {
 
 .was-validated .form-control:invalid, .form-control.is-invalid {
   border-bottom-color: var(--js-form-invalid-border-color);
-  padding-right: calc(1.33333333em + 1.375rem);
+  padding-right: calc(1.5em + 1.375rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right calc(0.3333333325em + 0.34375rem) center;
-  background-size: calc(0.666666665em + 0.6875rem) calc(0.666666665em + 0.6875rem);
+  background-position: right calc(0.375em + 0.34375rem) center;
+  background-size: calc(0.75em + 0.6875rem) calc(0.75em + 0.6875rem);
 }
 .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
   border-bottom-color: var(--js-form-invalid-border-color);
 }
 
 .was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
-  padding-right: calc(1.33333333em + 1.375rem);
-  background-position: top calc(0.3333333325em + 0.34375rem) right calc(0.3333333325em + 0.34375rem);
+  padding-right: calc(1.5em + 1.375rem);
+  background-position: top calc(0.375em + 0.34375rem) right calc(0.375em + 0.34375rem);
 }
 
 .was-validated .form-select:invalid, .form-select.is-invalid {
@@ -2782,14 +2788,14 @@ textarea.form-control-lg {
   --js-form-select-bg-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
   padding-right: 0;
   background-position: right 0 center, center right 0;
-  background-size: 16px 12px, calc(0.666666665em + 0.6875rem) calc(0.666666665em + 0.6875rem);
+  background-size: 16px 12px, calc(0.75em + 0.6875rem) calc(0.75em + 0.6875rem);
 }
 .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus {
   border-bottom-color: var(--js-form-invalid-border-color);
 }
 
 .was-validated .form-control-color:invalid, .form-control-color.is-invalid {
-  width: calc(3rem + calc(1.33333333em + 1.375rem));
+  width: calc(3rem + calc(1.5em + 1.375rem));
 }
 
 .was-validated .form-check-input:invalid, .form-check-input.is-invalid {
@@ -2815,17 +2821,17 @@ textarea.form-control-lg {
 }
 
 .btn {
-  --js-btn-padding-x: 1.875rem;
-  --js-btn-padding-y: 0.9375rem;
+  --js-btn-padding-x: 0.666666667rem;
+  --js-btn-padding-y: 0.333333333rem;
   --js-btn-font-family: ;
-  --js-btn-font-size: 0.875rem;
+  --js-btn-font-size: 1rem;
   --js-btn-font-weight: 400;
-  --js-btn-line-height: 1.28571429;
+  --js-btn-line-height: 1.5;
   --js-btn-color: var(--js-body-color);
   --js-btn-bg: transparent;
   --js-btn-border-width: var(--js-border-width);
   --js-btn-border-color: transparent;
-  --js-btn-border-radius: calc(calc(1.28571429em + 1.875rem + calc(var(--js-border-width) * 2)) * 2);
+  --js-btn-border-radius: calc(calc(1.5em + 0.666666666rem + calc(var(--js-border-width) * 2)) * 2);
   --js-btn-hover-border-color: transparent;
   --js-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
   --js-btn-disabled-opacity: 0.65;
@@ -3605,7 +3611,7 @@ fieldset:disabled .btn {
 }
 
 .btn-group {
-  border-radius: calc(calc(1.28571429em + 1.875rem + calc(var(--js-border-width) * 2)) * 2);
+  border-radius: calc(calc(1.5em + 0.666666666rem + calc(var(--js-border-width) * 2)) * 2);
 }
 .btn-group > :not(.btn-check:first-child) + .btn,
 .btn-group > .btn-group:not(:first-child) {
@@ -3625,8 +3631,8 @@ fieldset:disabled .btn {
 }
 
 .dropdown-toggle-split {
-  padding-right: 1.40625rem;
-  padding-left: 1.40625rem;
+  padding-right: 0.5000000003rem;
+  padding-left: 0.5000000003rem;
 }
 .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after, .dropend .dropdown-toggle-split::after {
   margin-left: 0;
@@ -3811,7 +3817,7 @@ fieldset:disabled .btn {
   --js-navbar-hover-color: rgba(var(--js-emphasis-color-rgb), 0.8);
   --js-navbar-disabled-color: rgba(var(--js-emphasis-color-rgb), 0.3);
   --js-navbar-active-color: rgba(var(--js-emphasis-color-rgb), 1);
-  --js-navbar-brand-padding-y: 0.3333333338rem;
+  --js-navbar-brand-padding-y: 0.3125rem;
   --js-navbar-brand-margin-end: 1rem;
   --js-navbar-brand-font-size: 1.25rem;
   --js-navbar-brand-color: rgba(var(--js-emphasis-color-rgb), 1);
@@ -3822,7 +3828,7 @@ fieldset:disabled .btn {
   --js-navbar-toggler-font-size: 1.25rem;
   --js-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   --js-navbar-toggler-border-color: rgba(var(--js-emphasis-color-rgb), 0.15);
-  --js-navbar-toggler-border-radius: calc(calc(1.28571429em + 1.875rem + calc(var(--js-border-width) * 2)) * 2);
+  --js-navbar-toggler-border-radius: calc(calc(1.5em + 0.666666666rem + calc(var(--js-border-width) * 2)) * 2);
   --js-navbar-toggler-focus-width: 0.25rem;
   --js-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
   position: relative;
@@ -5341,7 +5347,7 @@ fieldset:disabled .btn {
   --js-modal-header-padding: 1.25rem 1.375rem;
   --js-modal-header-border-color: var(--js-border-color);
   --js-modal-header-border-width: var(--js-border-width);
-  --js-modal-title-line-height: 1.33333333;
+  --js-modal-title-line-height: 1.5;
   --js-modal-footer-gap: 0.5rem;
   --js-modal-footer-bg: ;
   --js-modal-footer-border-color: var(--js-border-color);
@@ -5681,7 +5687,7 @@ fieldset:disabled .btn {
   font-family: var(--js-font-sans-serif);
   font-style: normal;
   font-weight: 400;
-  line-height: 1.33333333;
+  line-height: 1.5;
   text-align: left;
   text-align: start;
   text-decoration: none;
@@ -5791,7 +5797,7 @@ fieldset:disabled .btn {
   font-family: var(--js-font-sans-serif);
   font-style: normal;
   font-weight: 400;
-  line-height: 1.33333333;
+  line-height: 1.5;
   text-align: left;
   text-align: start;
   text-decoration: none;
@@ -6201,7 +6207,7 @@ fieldset:disabled .btn {
   --js-offcanvas-border-color: var(--js-border-color-translucent);
   --js-offcanvas-box-shadow: var(--js-box-shadow-sm);
   --js-offcanvas-transition: transform 0.3s ease-in-out;
-  --js-offcanvas-title-line-height: 1.33333333;
+  --js-offcanvas-title-line-height: 1.5;
 }
 
 @media (max-width: 575.98px) {
@@ -8295,7 +8301,7 @@ fieldset:disabled .btn {
 }
 
 .lh-base {
-  line-height: 1.33333333 !important;
+  line-height: 1.5 !important;
 }
 
 .lh-lg {
