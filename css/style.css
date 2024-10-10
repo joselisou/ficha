@@ -5333,7 +5333,7 @@ fieldset:disabled .btn {
 .modal {
   --js-modal-zindex: 1055;
   --js-modal-width: 500px;
-  --js-modal-padding: 1.375rem;
+  --js-modal-padding: 0;
   --js-modal-margin: 3.6875rem;
   --js-modal-color: ;
   --js-modal-bg: var(--js-body-bg);
@@ -5342,9 +5342,9 @@ fieldset:disabled .btn {
   --js-modal-border-radius: var(--js-border-radius-lg);
   --js-modal-box-shadow: var(--js-box-shadow-sm);
   --js-modal-inner-border-radius: calc(var(--js-border-radius-lg) - (var(--js-border-width)));
-  --js-modal-header-padding-x: 1.375rem;
+  --js-modal-header-padding-x: 0;
   --js-modal-header-padding-y: 1.25rem;
-  --js-modal-header-padding: 1.25rem 1.375rem;
+  --js-modal-header-padding: 1.25rem 0;
   --js-modal-header-border-color: var(--js-border-color);
   --js-modal-header-border-width: var(--js-border-width);
   --js-modal-title-line-height: 1.5;
@@ -5622,7 +5622,7 @@ fieldset:disabled .btn {
   }
 }
 .modal {
-  --js-modal-header-padding-x: 1.375rem;
+  --js-modal-header-padding-x: 0;
   --js-modal-header-padding-y: 1.25rem;
   --js-modal-padding-y: .333333333rem;
   --js-modal-padding-x: var(--js-modal-padding);
@@ -6199,8 +6199,8 @@ fieldset:disabled .btn {
   --js-offcanvas-zindex: 1045;
   --js-offcanvas-width: 400px;
   --js-offcanvas-height: 30vh;
-  --js-offcanvas-padding-x: 1.375rem;
-  --js-offcanvas-padding-y: 1.375rem;
+  --js-offcanvas-padding-x: 0;
+  --js-offcanvas-padding-y: 0;
   --js-offcanvas-color: var(--js-body-color);
   --js-offcanvas-bg: var(--js-body-bg);
   --js-offcanvas-border-width: var(--js-border-width);
