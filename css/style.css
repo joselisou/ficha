@@ -67,7 +67,7 @@
   --js-dark-border-subtle: #adb5bd;
   --js-white-rgb: 255, 255, 255;
   --js-black-rgb: 0, 0, 0;
-  --js-font-sans-serif: Graphik, Montserrat, Poppins, "Work Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --js-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --js-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --js-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --js-body-font-family: var(--js-font-sans-serif);
@@ -2825,7 +2825,7 @@ textarea.form-control-lg {
   --js-btn-padding-y: 0.333333333rem;
   --js-btn-font-family: ;
   --js-btn-font-size: 1rem;
-  --js-btn-font-weight: 400;
+  --js-btn-font-weight: 500;
   --js-btn-line-height: 1.5;
   --js-btn-color: var(--js-body-color);
   --js-btn-bg: transparent;
