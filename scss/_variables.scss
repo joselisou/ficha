@@ -48,22 +48,23 @@ $rose-600: shade-color($rose, 20%) !default;
 $rose-700: shade-color($rose, 40%) !default;
 $rose-800: shade-color($rose, 60%) !default;
 $rose-900: shade-color($rose, 80%) !default;
-$primary: $tapestry !default;
+// $primary: $rose !default;
+$primary: $purple !default;
 $danger: $red !default;
 $prefix: js- !default;
 $input-btn-padding-y: .375rem !default;
 $input-btn-padding-x: .75rem !default;
-// $font-family-sans-serif: Graphik, Montserrat, Poppins, "Work Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$grid-gutter-width: 3rem !default;
+$font-family-sans-serif: Graphik, Montserrat, Poppins, "Work Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+// $font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$grid-gutter-width: 2.25rem !default;
 $font-size-base: 1rem !default;
-$font-size-sm: $font-size-base * .875 !default;
+$font-size-sm: $font-size-base * .656383328 !default;
 $line-height-base: 1.5 !default;
 $line-height-sm: 1.28571429 !default;
-$btn-padding-y: 0.333333333rem !default;
-$btn-padding-x: 0.666666667rem !default;
-$btn-font-size: $font-size-base !default;
-$btn-line-height: $line-height-base !default;
+$btn-padding-y: .492287496rem !default;
+$btn-padding-x: .984574992rem !default;
+$btn-font-size: $font-size-sm !default;
+$btn-line-height: 1.8 !default;
 $border-width: 2px !default;
 $input-btn-border-width: var(--#{$prefix}border-width) !default;
 $font-weight-medium: 500 !default;
@@ -73,24 +74,30 @@ $btn-height-border: calc(#{$btn-border-width} * 2) !default;
 $btn-height: add($btn-line-height * 1em, add($btn-padding-y * 2, $btn-height-border, false)) !default;
 $btn-border-radius: calc(#{$btn-height} * 2) !default;
 $modal-dialog-margin: 0px !default;
+$modal-dialog-margin-y-sm-up: 0px !default;
 $modal-fade-transform: translate(100vw, 0) !default;
 $btn-close-color: $black !default;
 $btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M1.666.666a1 1 0 0 0-.707.293 1 1 0 0 0 0 1.414L6.586 8 .959 13.627a1 1 0 0 0 0 1.414 1 1 0 0 0 1.414 0L8 9.414l5.627 5.627a1 1 0 0 0 1.414 0 1 1 0 0 0 0-1.414L9.414 8l5.627-5.627a1 1 0 0 0 0-1.414 1 1 0 0 0-.707-.293 1 1 0 0 0-.707.293L8 6.586 2.373.959a1 1 0 0 0-.707-.293'/></svg>") !default;
 $border-radius-xl: .9375rem !default;
 $modal-dialog-margin: 3.6875rem !default;
-$modal-inner-padding: 1.375rem !default;
+$modal-inner-padding: 1.125rem !default;
 $modal-header-padding-y: 1.25rem !default;
 $form-label-font-weight: $font-weight-medium !default;
-$form-label-font-size: 2rem !default;
+$form-label-font-size: 1.25rem !default;
+$form-label-letter-spacing: -0.0375em !default;
+$form-label-line-height: 1.2 !default;
 $btn-close-opacity: .6 !default;
-$form-text-font-size: 1rem !default;
-$form-label-margin-bottom: .625rem !default;
+$form-text-font-size: $font-size-base * .78125 !default;
+$form-text-letter-spacing: -0.036em !default;
+$form-text-line-height: 1.3 !default;
+$form-label-margin-bottom: .40625rem !default;
 $input-padding-x: 0 !default;
 $input-border-radius: 0 !default;
-$input-font-size: 1.125rem !default;
+$input-font-size: $font-size-base * .8125 !default;
+$input-letter-spacing: -.013em !default;
 $input-font-weight: $font-weight-medium !default;
-$input-padding-y: .6875rem !default;
-$form-text-margin-top: 1.9375rem !default;
+$input-padding-y: .5rem !default;
+$form-text-margin-top: 1.5rem !default;
 $form-feedback-margin-top: .25rem !default;
 $form-text-margin-bottom: $form-text-margin-top !default;
 $modal-backdrop-opacity: .6 !default;
@@ -117,5 +124,14 @@ $form-validation-states: (
     "border-color": var(--#{$prefix}form-invalid-border-color),
   )
 ) !default;
+$container-max-widths: (
+  sm: 590px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+) !default;
+$paragraph-margin-bottom: 2.71875rem !default;
+$modal-md: 590px !default;
 
 @import "../node_modules/bootstrap/scss/variables";

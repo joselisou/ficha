@@ -4,4 +4,6 @@
   margin-top: 0;
   margin-bottom: $form-text-margin-bottom;
   @include font-size($form-text-font-size);
+  letter-spacing: $form-text-letter-spacing;
+  line-height: $form-text-line-height;
 }

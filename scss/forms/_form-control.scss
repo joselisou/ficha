@@ -7,6 +7,8 @@
   caret-color: var(--#{$prefix}caret-color);
   border-right-width: var(--border-x);
   border-left-width: var(--border-x);
+  letter-spacing: $input-letter-spacing;
+  border-top-width: 0;
 
   &,
   &:focus {
