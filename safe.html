@@ -47,6 +47,7 @@
       function generateBackground() {
         const colorsLength = vibrantColors.length;
         let backgroundImage = '';
+        let backgroundPosition = '';
 
         // Loop to generate 100 squares
         for (let i = 0; i < 100; i++) {
@@ -54,20 +55,21 @@
           const color = vibrantColors[colorIndex];
 
           // Each linear-gradient creates one square
-          backgroundImage += `linear-gradient(to bottom right, ${color} 50%, transparent 50%)`;
+          backgroundImage += `linear-gradient(45deg, ${color}, ${color})`;
 
           // Add background-position for each square
-          const position = `${i}vw ${i}vh`;
-          backgroundImage += ` ${position}`;
+          backgroundPosition += ` ${i}vw ${i}vh`;
 
           // Add comma except for the last one
           if (i < 99) {
             backgroundImage += ', ';
+            backgroundPosition += ', ';
           }
         }
 
         // Apply the background-image to the container
         container.style.backgroundImage = backgroundImage;
+        container.style.backgroundPosition = backgroundPosition;
         container.style.backgroundSize = '1vw 1vh';
       }
 
