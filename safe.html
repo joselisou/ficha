@@ -11,20 +11,30 @@
         box-sizing: border-box;
       }
 
+      html {
+        font-size: .254237288vw;
+      }
+
       body, html {
         width: 100vw;
         height: 100vh;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: flex-end;
         overflow: hidden;
       }
 
+      /* body {
+        padding: 24px 22px;
+      } */
+
       .square-container {
-        width: 1vw;
-        height: 1vh;
+        width: 56rem;
+        height: 56rem;
         background-repeat: no-repeat;
-        background-size: 1vw 1vh;
+        /* background-size: 1vw 1vh; */
+        background-color: black;
+        border-radius: 50%;
       }
     </style>
   </head>
@@ -74,7 +84,7 @@
         container.style.backgroundPosition = backgroundPosition;
       }
 
-      generateBackground();
+      //generateBackground();
     </script>
   </body>
 </html>
