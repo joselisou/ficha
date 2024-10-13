@@ -21,9 +21,10 @@
       }
 
       .square-container {
-        width: 100vw;
-        height: 100vh;
+        width: 10vw;
+        height: 10vh;
         background-repeat: no-repeat;
+        background-size: 1vw 1vh;
       }
     </style>
   </head>
@@ -48,9 +49,10 @@
         const colorsLength = vibrantColors.length;
         let backgroundImage = '';
         let backgroundPosition = '';
+        const size = 10;
 
         // Loop to generate 100 squares
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < size; i++) {
           const colorIndex = i % colorsLength;
           const color = vibrantColors[colorIndex];
 
@@ -61,7 +63,7 @@
           backgroundPosition += ` ${i}vw ${i}vh`;
 
           // Add comma except for the last one
-          if (i < 99) {
+          if (i < (size - 1)) {
             backgroundImage += ', ';
             backgroundPosition += ', ';
           }
@@ -70,7 +72,6 @@
         // Apply the background-image to the container
         container.style.backgroundImage = backgroundImage;
         container.style.backgroundPosition = backgroundPosition;
-        container.style.backgroundSize = '1vw 1vh';
       }
 
       generateBackground();
