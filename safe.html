@@ -1,89 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diagonal Squares with Gradients</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Rectangle Height</title>
+  <style>
+    html {
+      font-size: .254237288vw; /* Set base font-size for rem calculations. */
+    }
 
-      html {
-        font-size: .254237288vw;
-      }
+    body, .safe {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-      body, html {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        overflow: hidden;
-      }
+    .safe {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-      /* body {
-        padding: 24px 22px;
-      } */
+    form {
+      margin-bottom: 1rem; /* Add margin to separate form from rectangle. */
+    }
 
-      .square-container {
-        width: 56rem;
-        height: 56rem;
-        background-repeat: no-repeat;
-        background-size: 1px 1px;
-        border-radius: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="square-container"></div>
-    <script>
-      const container = document.querySelector('.square-container');
+    #rectangle {
+      width: 100vw;
+      background-color: black; /* Set the rectangle color. */
+    }
+  </style>
+</head>
+<body>
 
-      // Array of vibrant colors, avoiding grays
-      const vibrantColors = [
-        '#FF0000', // Red
-        '#FF7F00', // Orange
-        '#FFFF00', // Yellow
-        '#00FF00', // Green
-        '#0000FF', // Blue
-        '#4B0082', // Indigo
-        '#8B00FF', // Violet
-      ];
+<main class="safe">
+  <form id="controlForm">
+    <select id="unitSelect">
+      <option value="px" data-default="100">Px</option>
+      <option value="vh" data-default="20">Vh</option>
+      <option value="vw" data-default="50">Vw</option>
+      <option value="rem" data-default="61">Rem</option>
+    </select>
 
-      // Function to generate the background image with multiple gradients
-      function generateBackground() {
-        const colorsLength = vibrantColors.length;
-        let backgroundImage = '';
-        let backgroundPosition = '';
-        const size = 90;
+    <input type="number" id="heightInput" value="100" />
+  </form>
 
-        // Loop to generate 100 squares
-        for (let i = 0; i < size; i++) {
-          const colorIndex = i % colorsLength;
-          const color = vibrantColors[colorIndex];
+  <div id="rectangle"></div>
+</main>
 
-          // Each linear-gradient creates one square
-          backgroundImage += `linear-gradient(45deg, ${color}, ${color})`;
+<script>
+  const form = document.getElementById('controlForm');
+  const unitSelect = document.getElementById('unitSelect');
+  const heightInput = document.getElementById('heightInput');
+  const rectangle = document.getElementById('rectangle');
 
-          // Add background-position for each square
-          backgroundPosition += ` ${i}px ${i}px`;
+  // Function to update the rectangle height based on user input.
+  function updateRectangleHeight() {
+    const selectedUnit = unitSelect.value;
+    const heightValue = heightInput.value;
+    rectangle.style.height = `${heightValue}${selectedUnit}`;
+  }
 
-          // Add comma except for the last one
-          if (i < (size - 1)) {
-            backgroundImage += ', ';
-            backgroundPosition += ', ';
-          }
-        }
+  // Update the number input's default value when the unit is changed.
+  unitSelect.addEventListener('change', function() {
+    const defaultHeight = this.options[this.selectedIndex].getAttribute('data-default');
+    heightInput.value = defaultHeight;
+    updateRectangleHeight();
+  });
 
-        // Apply the background-image to the container
-        container.style.backgroundImage = backgroundImage;
-        container.style.backgroundPosition = backgroundPosition;
-      }
+  // Update the rectangle height when the number input is changed.
+  heightInput.addEventListener('input', updateRectangleHeight);
 
-      generateBackground();
-    </script>
-  </body>
+  // Set the initial rectangle height.
+  updateRectangleHeight();
+</script>
+
+</body>
 </html>
