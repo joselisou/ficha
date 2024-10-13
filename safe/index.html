@@ -11,12 +11,24 @@
   <meta name="theme-color" content="#b25a7c">
   <meta name="apple-mobile-web-app-status-bar-style" content="#b25a7c">
   <style>
+    :root {
+      --body-bg: #b25a7c;
+      --body-color: #fff;
+    }
+
     html {
       font-size: .254237288vw; /* Set base font-size for rem calculations. */
     }
 
+    @media (min-width: 768px) {
+      html {
+        font-size: 1.37288px;
+      }
+    }
+
     body {
-      font-family: system-ui,-apple-system,sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--body-bg);
     }
 
     body, .safe {
@@ -27,6 +39,10 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .safe {
+      padding-top: 11.6543325rem;
     }
 
     .visually-hidden {
@@ -48,6 +64,9 @@
     form {
       display: flex;
       gap: 2.91358312rem;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
     }
 
     select,
@@ -69,9 +88,9 @@
     input[type="number"] {
       display: block;
       width: 100%;
-      color: #212529;
-      border-color: #dee2e6;
-      background-color: #fff;
+      color: var(--body-color);
+      border-color: var(--body-color);
+      background-color: var(--body-bg);
       transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     }
 
@@ -88,7 +107,7 @@
 
     select {
       padding-right: 26.2222481rem;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
       background-repeat: no-repeat;
       background-position: right 8.74074937rem center;
       background-size: 11.6543325rem 8.74074937rem;
@@ -97,27 +116,34 @@
 
     button {
       display: inline-block;
-      color: #fff;
+      color: var(--body-bg);
       text-align: center;
       vertical-align: middle;
       cursor: pointer;
       -webkit-user-select: none;
       -moz-user-select: none;
       user-select: none;
-      border-color: #6c757d;
-      background-color: #6c757d;
+      border-color: var(--body-color);
+      background-color: var(--body-color);
       transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
 
     .fab {
       width: 56rem;
       height: 56rem;
-      background-color: lime;
+      background-color: white;
       border-radius: 0;
-      border-color: lime;
+      border-color: white;
       position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: 24rem;
+      right: 36rem;
+      border-radius: 50%;;
+    }
+
+    .fab svg {
+      width: 24rem;
+      height: 24rem;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -143,6 +169,9 @@
   </form>
 
   <button type="submit" class="fab">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="ji ji-arrow-right" viewBox="0 0 16 16">
+      <path d="M8.25.25a1 1 0 0 0-.708.293 1 1 0 0 0 0 1.416l5.041 5.042H1a1 1 0 0 0 0 2h11.583l-5.04 5.042a1 1 0 0 0 0 1.414 1 1 0 0 0 1.413 0l6.75-6.749a1 1 0 0 0 0-1.416L8.956.543A1 1 0 0 0 8.25.25"/>
+    </svg>
     <span class="visually-hidden">Next</span>
   </button>
 
@@ -173,22 +202,22 @@
   // Object to store user-defined values for each platform and unit.
   const unitValues = {
     ios: {
-      px: 108.2,
-      vh: 14,
-      vw: 27.6,
-      rem: 108.3
+      px: 0, //108.2,
+      vh: 0, //14,
+      vw: 0, //27.6,
+      rem: 0 //108.3
     },
     android: {
-      px: 56.3,
-      vh: 6.5,
-      vw: 13.1,
-      rem: 51.2
+      px: 0, //6.3,
+      vh: 0, //.5,
+      vw: 0, //3.1,
+      rem: 0 //1.2
     },
     unknown: {
-      px: 50, // Default values for unknown platforms
-      vh: 10,
-      vw: 10,
-      rem: 50
+      px: 0, //50, // Default values for unknown platforms
+      vh: 0, //10,
+      vw: 0, //10,
+      rem: 0 //50,
     }
   };
 
