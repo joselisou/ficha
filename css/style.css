@@ -2115,7 +2115,6 @@ html {
 }
 
 .form-label {
-  letter-spacing: -0.0375em;
   line-height: 1.2;
 }
 .form-label span {
@@ -2132,7 +2131,6 @@ html {
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 0.78125rem;
-  letter-spacing: -0.036em;
   line-height: 1.3;
 }
 .form-text span {
@@ -2294,7 +2292,6 @@ textarea.form-control-lg {
   caret-color: var(--js-caret-color);
   border-right-width: var(--border-x);
   border-left-width: var(--border-x);
-  letter-spacing: -0.013em;
   border-top-width: 0;
 }
 .form-control, .form-control:focus {
