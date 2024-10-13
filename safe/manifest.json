@@ -2,9 +2,9 @@
   "name": "Joseli Souza Rect",
   "short_name": "JS Rect",
   "description": "A web app Rect for Joseli Souza makeup artist.",
-  "start_url": "/index.html",
+  "start_url": "/safe/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#b25a7c",
   "theme_color": "#b25a7c",
   "orientation": "portrait",
   "icons": [
