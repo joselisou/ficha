@@ -108,6 +108,17 @@
       background-color: #6c757d;
       transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
+
+    .fab {
+      width: 56rem;
+      height: 56rem;
+      background-color: lime;
+      border-radius: 0;
+      border-color: lime;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
   </style>
 </head>
 <body>
@@ -130,6 +141,10 @@
     <button type="button" id="ud">ud</button>
     <button type="button" id="dd">dd</button>
   </form>
+
+  <button type="submit" class="fab">
+    <span class="visually-hidden">Next</span>
+  </button>
 
   <div id="rectangle" class="rectangle"></div>
 </div>
