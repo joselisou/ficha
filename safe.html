@@ -32,8 +32,7 @@
         width: 56rem;
         height: 56rem;
         background-repeat: no-repeat;
-        /* background-size: 1vw 1vh; */
-        background-color: black;
+        background-size: 1px 1px;
         border-radius: 50%;
       }
     </style>
@@ -59,7 +58,7 @@
         const colorsLength = vibrantColors.length;
         let backgroundImage = '';
         let backgroundPosition = '';
-        const size = 1;
+        const size = 90;
 
         // Loop to generate 100 squares
         for (let i = 0; i < size; i++) {
@@ -70,7 +69,7 @@
           backgroundImage += `linear-gradient(45deg, ${color}, ${color})`;
 
           // Add background-position for each square
-          backgroundPosition += ` ${i}vw ${i}vh`;
+          backgroundPosition += ` ${i}px ${i}px`;
 
           // Add comma except for the last one
           if (i < (size - 1)) {
@@ -84,7 +83,7 @@
         container.style.backgroundPosition = backgroundPosition;
       }
 
-      //generateBackground();
+      generateBackground();
     </script>
   </body>
 </html>
