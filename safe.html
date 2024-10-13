@@ -16,47 +16,76 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-    }
-
-    .safe {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       align-items: center;
     }
 
-    form {
-      margin-bottom: 1rem; /* Add margin to separate form from rectangle. */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
     }
 
-    #rectangle {
+    .rectangle {
       width: 100vw;
-      background-color: black; /* Set the rectangle color. */
+      background-color: black; /* Set rectangle to black for high contrast. */
+    }
+
+    button {
+      padding: 0.5rem;
+    }
+
+    input[type="number"] {
+      pointer-events: none; /* Make the input field uneditable. */
     }
   </style>
 </head>
 <body>
 
-<main class="safe">
+<div class="safe">
   <form id="controlForm">
+    <label class="visually-hidden" for="unitSelect">Select Unit:</label>
     <select id="unitSelect">
-      <option value="px" data-default="100">Px</option>
-      <option value="vh" data-default="20">Vh</option>
-      <option value="vw" data-default="50">Vw</option>
-      <option value="rem" data-default="61">Rem</option>
+      <option value="px">Px</option>
+      <option value="vh">Vh</option>
+      <option value="vw">Vw</option>
+      <option value="rem">Rem</option>
     </select>
 
-    <input type="number" id="heightInput" value="100" />
+    <label class="visually-hidden" for="heightInput">Height:</label>
+    <input type="number" id="heightInput" value="56" readonly />
+
+    <button type="button" id="ui">ui</button>
+    <button type="button" id="di">di</button>
+    <button type="button" id="ud">ud</button>
+    <button type="button" id="dd">dd</button>
   </form>
 
-  <div id="rectangle"></div>
-</main>
+  <div id="rectangle" class="rectangle"></div>
+</div>
 
 <script>
-  const form = document.getElementById('controlForm');
   const unitSelect = document.getElementById('unitSelect');
   const heightInput = document.getElementById('heightInput');
   const rectangle = document.getElementById('rectangle');
+  const buttons = {
+    ui: document.getElementById('ui'),
+    di: document.getElementById('di'),
+    ud: document.getElementById('ud'),
+    dd: document.getElementById('dd')
+  };
+
+  // Object to store user-defined values for each unit.
+  const unitValues = {
+    px: 56,
+    vh: 6.4,
+    vw: 13,
+    rem: 51.1
+  };
 
   // Function to update the rectangle height based on user input.
   function updateRectangleHeight() {
@@ -65,18 +94,43 @@
     rectangle.style.height = `${heightValue}${selectedUnit}`;
   }
 
-  // Update the number input's default value when the unit is changed.
-  unitSelect.addEventListener('change', function() {
-    const defaultHeight = this.options[this.selectedIndex].getAttribute('data-default');
-    heightInput.value = defaultHeight;
+  // Function to set default or user-defined value.
+  function setDefaultHeight() {
+    const selectedUnit = unitSelect.value;
+    heightInput.value = unitValues[selectedUnit];
+    updateRectangleHeight();
+  }
+
+  // Update stored values when buttons are clicked, keeping decimals.
+  buttons.ui.addEventListener('click', () => {
+    heightInput.value = (parseFloat(heightInput.value) + 1).toFixed(1);
+    unitValues[unitSelect.value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
-  // Update the rectangle height when the number input is changed.
-  heightInput.addEventListener('input', updateRectangleHeight);
+  buttons.di.addEventListener('click', () => {
+    heightInput.value = (parseFloat(heightInput.value) - 1).toFixed(1);
+    unitValues[unitSelect.value] = parseFloat(heightInput.value);
+    updateRectangleHeight();
+  });
 
-  // Set the initial rectangle height.
-  updateRectangleHeight();
+  buttons.ud.addEventListener('click', () => {
+    heightInput.value = (parseFloat(heightInput.value) + 0.1).toFixed(1);
+    unitValues[unitSelect.value] = parseFloat(heightInput.value);
+    updateRectangleHeight();
+  });
+
+  buttons.dd.addEventListener('click', () => {
+    heightInput.value = (parseFloat(heightInput.value) - 0.1).toFixed(1);
+    unitValues[unitSelect.value] = parseFloat(heightInput.value);
+    updateRectangleHeight();
+  });
+
+  // Update the height when the unit changes.
+  unitSelect.addEventListener('change', setDefaultHeight);
+
+  // Set initial height.
+  setDefaultHeight();
 </script>
 
 </body>
