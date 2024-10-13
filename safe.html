@@ -79,12 +79,36 @@
     dd: document.getElementById('dd')
   };
 
-  // Object to store user-defined values for each unit.
+  // Detect platform based on user agent
+  let platform;
+  if (/android/i.test(navigator.userAgent)) {
+    platform = 'android';
+  } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    platform = 'ios';
+  } else {
+    platform = 'unknown';
+  }
+
+  // Object to store user-defined values for each platform and unit.
   const unitValues = {
-    px: 56,
-    vh: 6.4,
-    vw: 13,
-    rem: 51.1
+    ios: {
+      px: 108.2,
+      vh: 14,
+      vw: 27.6,
+      rem: 108.3
+    },
+    android: {
+      px: 56.3,
+      vh: 6.5,
+      vw: 13.1,
+      rem: 51.2
+    },
+    unknown: {
+      px: 50, // Default values for unknown platforms
+      vh: 10,
+      vw: 10,
+      rem: 50
+    }
   };
 
   // Function to update the rectangle height based on user input.
@@ -94,35 +118,35 @@
     rectangle.style.height = `${heightValue}${selectedUnit}`;
   }
 
-  // Function to set default or user-defined value.
+  // Function to set default or user-defined value based on the detected platform.
   function setDefaultHeight() {
     const selectedUnit = unitSelect.value;
-    heightInput.value = unitValues[selectedUnit];
+    heightInput.value = unitValues[platform][selectedUnit];
     updateRectangleHeight();
   }
 
   // Update stored values when buttons are clicked, keeping decimals.
   buttons.ui.addEventListener('click', () => {
     heightInput.value = (parseFloat(heightInput.value) + 1).toFixed(1);
-    unitValues[unitSelect.value] = parseFloat(heightInput.value);
+    unitValues[platform][unitSelect.value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
   buttons.di.addEventListener('click', () => {
     heightInput.value = (parseFloat(heightInput.value) - 1).toFixed(1);
-    unitValues[unitSelect.value] = parseFloat(heightInput.value);
+    unitValues[platform][unitSelect.value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
   buttons.ud.addEventListener('click', () => {
     heightInput.value = (parseFloat(heightInput.value) + 0.1).toFixed(1);
-    unitValues[unitSelect.value] = parseFloat(heightInput.value);
+    unitValues[platform][unitSelect.value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
   buttons.dd.addEventListener('click', () => {
     heightInput.value = (parseFloat(heightInput.value) - 0.1).toFixed(1);
-    unitValues[unitSelect.value] = parseFloat(heightInput.value);
+    unitValues[platform][unitSelect.value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
