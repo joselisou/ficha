@@ -2118,6 +2118,9 @@ html {
   letter-spacing: -0.0375em;
   line-height: 1.2;
 }
+.form-label span {
+  white-space: nowrap;
+}
 
 .form-text {
   margin-top: 1.5rem;
@@ -2131,6 +2134,9 @@ html {
   font-size: 0.78125rem;
   letter-spacing: -0.036em;
   line-height: 1.3;
+}
+.form-text span {
+  white-space: nowrap;
 }
 
 .form-control {

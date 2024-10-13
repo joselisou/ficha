@@ -6,4 +6,8 @@
   @include font-size($form-text-font-size);
   letter-spacing: $form-text-letter-spacing;
   line-height: $form-text-line-height;
+
+  span {
+    white-space: nowrap;
+  }
 }

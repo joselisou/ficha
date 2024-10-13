@@ -102,6 +102,16 @@
           nextButton.disabled = true; // Disable the button
         }
       });
+
+      // Select all <label> elements
+      const labels = document.querySelectorAll('.form-label,.form-text');
+
+      labels.forEach(label => {
+        // Replace hyphenated words with a span having the Tailwind class whitespace-nowrap
+        label.innerHTML = label.innerHTML.replace(/\b[\w]+-[\w]+\b/g, function(match) {
+          return `<span>${match}</span>`;
+        });
+      });
     });
   </script>
 
