@@ -11,13 +11,18 @@
   <meta name="theme-color" content="#b25a7c">
   <meta name="apple-mobile-web-app-status-bar-style" content="#b25a7c">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     :root {
       --body-bg: #b25a7c;
       --body-color: #fff;
     }
 
     html {
-      font-size: .254237288vw; /* Set base font-size for rem calculations. */
+      /* font-size: .254237288vw; */
+      font-size: .231481481vw;
     }
 
     @media (min-width: 768px) {
@@ -29,6 +34,9 @@
     body {
       font-family: system-ui, -apple-system, sans-serif;
       background-color: var(--body-bg);
+      font-size: 24rem;
+      color: var(--body-color);
+      line-height: 1.16666667;
     }
 
     body, .safe {
@@ -42,7 +50,7 @@
     }
 
     .safe {
-      padding-top: 11.6543325rem;
+      padding-top: 24rem;
     }
 
     .visually-hidden {
@@ -58,63 +66,106 @@
 
     .rectangle {
       width: 100vw;
-      background-color: red; /* Set rectangle to black for high contrast. */
+      background-color: red;
     }
 
     form {
+      --px: 36rem;
+
       display: flex;
-      gap: 2.91358312rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 8rem;
       width: 100%;
-      justify-content: center;
+      align-items: center;
+      padding-right: var(--px);
+      padding-left: var(--px);
     }
 
-    select,
-    input[type="number"],
-    button {
-      padding: 4.37037469rem 8.74074937rem;
+    fieldset {
+      /* --py: 0;
+      --px: 36rem; */
+      border: 0;
+      width: 100%;
+      /* padding: var(--py) var(--px); */
+      padding: 0;
+      margin: 0;
+    }
+
+    label {
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .radios > div {
+      --px: 36rem;
+      margin-right: calc(var(--px) * -1);
+      margin-left: calc(var(--px) * -1);
+      padding-left: var(--px);
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+
+    .radios label {
+      --py: 6rem;
+      padding-top: var(--py);
+      padding-bottom: var(--py);
+      flex: 1 0 0%;
+      padding-left: 4rem;
+    }
+
+    input[type="radio"] {
+      margin: 0;
+      transform: scale(1.84615385);
+      accent-color: var(--body-bg);
+    }
+
+    .radios input[type="radio"] {
+      --mx: 4rem;
+      flex: 0 0 auto;
+      width: auto;
+      margin-right: var(--mx);
+      margin-left: var(--mx);
+    }
+
+    .form-control,
+    .btn {
+      --py: 12rem;
+      padding-top: var(--py);
+      padding-bottom: var(--py);
       font-family: inherit;
-      font-size: 11.6543325rem;
-      line-height: 1.5;
+      font-size: 24rem;
+      line-height: 1.16666667;
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      border-width: 1px;
+      border-width: 2rem;
       border-style: solid;
-      border-radius: 4.37037469rem;
+      font-weight: 500;
     }
 
-    select,
-    input[type="number"] {
+    .form-control {
       display: block;
       width: 100%;
       color: var(--body-color);
       border-color: var(--body-color);
       background-color: var(--body-bg);
-      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    }
-
-    select:focus,
-    input[type="number"]:focus {
-      outline: 0;
-    }
-
-    input[type="number"] {
-      pointer-events: none; /* Make the input field uneditable. */
+      pointer-events: none;
       background-clip: padding-box;
-      max-width: 48.1105413rem;
+      min-width: 48.1105413rem;
+      border-right-width: 0;
+      border-left-width: 0;
+      border-top-color: transparent;
     }
 
-    select {
-      padding-right: 26.2222481rem;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 8.74074937rem center;
-      background-size: 11.6543325rem 8.74074937rem;
-      max-width: 60.3111707rem;
+    .form-control-sm {
+      --py: 4rem;
     }
 
-    button {
+    .btn {
+      --px: 8.74074937rem;
+      padding-right: var(--px);
+      padding-left: var(--px);
       display: inline-block;
       color: var(--body-bg);
       text-align: center;
@@ -125,25 +176,81 @@
       user-select: none;
       border-color: var(--body-color);
       background-color: var(--body-color);
-      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      border-radius: 4.37037469rem;
+      --min-w: 56rem;
+      min-width: var(--min-w);
+    }
+
+    .btn-sm {
+      --py: 4rem;
+      --px: 3rem;
+      --min-w: 40rem;
+    }
+
+    .circle-btns {
+      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    .circle-btns .btn {
+      border-radius: 0;
+      border-width: 0;
+    }
+
+    .circle-btns .btn:nth-child(1) {
+      border-top-left-radius: 100%;
+    }
+
+    .circle-btns .btn:nth-child(2) {
+      border-top-right-radius: 100%;
+    }
+
+    .circle-btns .btn:nth-child(1),
+    .circle-btns .btn:nth-child(2) {
+      padding-top: 11rem;
+      padding-bottom: 1rem;
+    }
+
+    .circle-btns .btn:nth-child(odd) {
+      padding-left: 5rem;
+      padding-right: 1rem;
+    }
+
+    .circle-btns .btn:nth-child(even) {
+      padding-left: 1rem;
+      padding-right: 5rem;
+    }
+
+    .circle-btns .btn:nth-child(3) {
+      border-bottom-left-radius: 100%;
+    }
+
+    .circle-btns .btn:nth-child(4) {
+      border-bottom-right-radius: 100%;
+    }
+
+    .circle-btns .btn:nth-child(3),
+    .circle-btns .btn:nth-child(4) {
+      padding-top: 1rem;
+      padding-bottom: 11rem;
     }
 
     .fab {
       width: 56rem;
       height: 56rem;
       background-color: white;
-      border-radius: 0;
       border-color: white;
       position: absolute;
       bottom: 24rem;
       right: 36rem;
-      border-radius: 50%;;
+      border-radius: 50%;
     }
 
     .fab svg {
       width: 24rem;
       height: 24rem;
-      vertical-align: middle;
+      vertical-align: -4rem;
     }
   </style>
 </head>
@@ -151,24 +258,42 @@
 
 <div class="safe">
   <form id="controlForm">
-    <label class="visually-hidden" for="unitSelect">Select Unit:</label>
-    <select id="unitSelect">
-      <option value="px">Px</option>
-      <option value="vh">Vh</option>
-      <option value="vw">Vw</option>
-      <option value="rem">Rem</option>
-    </select>
+    <fieldset class="radios">
+      <legend class="visually-hidden">Select Unit:</legend>
+
+      <div>
+        <input type="radio" id="px" name="unit" value="px" checked>
+        <label for="px">Px</label><br>
+      </div>
+
+      <div>
+        <input type="radio" id="vh" name="unit" value="vh">
+        <label for="vh">Vh</label><br>
+      </div>
+
+      <div>
+        <input type="radio" id="vw" name="unit" value="vw">
+        <label for="vw">Vw</label><br>
+      </div>
+
+      <div>
+        <input type="radio" id="rem" name="unit" value="rem">
+        <label for="rem">Rem</label>
+      </div>
+    </fieldset>
 
     <label class="visually-hidden" for="heightInput">Height:</label>
-    <input type="number" id="heightInput" value="56" readonly />
+    <input type="number" id="heightInput" class="form-control form-control-sm" readonly />
 
-    <button type="button" id="ui">ui</button>
-    <button type="button" id="di">di</button>
-    <button type="button" id="ud">ud</button>
-    <button type="button" id="dd">dd</button>
+    <div class="circle-btns">
+      <button class="btn btn-sm" type="button" id="ui">ui</button>
+      <button class="btn btn-sm" type="button" id="di">di</button>
+      <button class="btn btn-sm" type="button" id="ud">ud</button>
+      <button class="btn btn-sm" type="button" id="dd">dd</button>
+    </div>
   </form>
 
-  <button type="submit" class="fab">
+  <button type="submit" class="btn fab">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="ji ji-arrow-right" viewBox="0 0 16 16">
       <path d="M8.25.25a1 1 0 0 0-.708.293 1 1 0 0 0 0 1.416l5.041 5.042H1a1 1 0 0 0 0 2h11.583l-5.04 5.042a1 1 0 0 0 0 1.414 1 1 0 0 0 1.413 0l6.75-6.749a1 1 0 0 0 0-1.416L8.956.543A1 1 0 0 0 8.25.25"/>
     </svg>
@@ -179,9 +304,9 @@
 </div>
 
 <script>
-  const unitSelect = document.getElementById('unitSelect');
   const heightInput = document.getElementById('heightInput');
   const rectangle = document.getElementById('rectangle');
+  const unitRadios = document.querySelectorAll('input[name="unit"]');
   const buttons = {
     ui: document.getElementById('ui'),
     di: document.getElementById('di'),
@@ -223,47 +348,49 @@
 
   // Function to update the rectangle height based on user input.
   function updateRectangleHeight() {
-    const selectedUnit = unitSelect.value;
+    const selectedUnit = document.querySelector('input[name="unit"]:checked').value;
     const heightValue = heightInput.value;
     rectangle.style.height = `${heightValue}${selectedUnit}`;
   }
 
   // Function to set default or user-defined value based on the detected platform.
   function setDefaultHeight() {
-    const selectedUnit = unitSelect.value;
+    const selectedUnit = document.querySelector('input[name="unit"]:checked').value;
     heightInput.value = unitValues[platform][selectedUnit];
     updateRectangleHeight();
   }
 
+  // Add event listener to radio buttons.
+  unitRadios.forEach(radio => {
+    radio.addEventListener('change', setDefaultHeight);
+  });
+
   // Update stored values when buttons are clicked, keeping decimals.
   buttons.ui.addEventListener('click', () => {
     heightInput.value = (parseFloat(heightInput.value) + 1).toFixed(1);
-    unitValues[platform][unitSelect.value] = parseFloat(heightInput.value);
+    unitValues[platform][document.querySelector('input[name="unit"]:checked').value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
   buttons.di.addEventListener('click', () => {
     heightInput.value = (parseFloat(heightInput.value) - 1).toFixed(1);
-    unitValues[platform][unitSelect.value] = parseFloat(heightInput.value);
+    unitValues[platform][document.querySelector('input[name="unit"]:checked').value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
   buttons.ud.addEventListener('click', () => {
     heightInput.value = (parseFloat(heightInput.value) + 0.1).toFixed(1);
-    unitValues[platform][unitSelect.value] = parseFloat(heightInput.value);
+    unitValues[platform][document.querySelector('input[name="unit"]:checked').value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
   buttons.dd.addEventListener('click', () => {
     heightInput.value = (parseFloat(heightInput.value) - 0.1).toFixed(1);
-    unitValues[platform][unitSelect.value] = parseFloat(heightInput.value);
+    unitValues[platform][document.querySelector('input[name="unit"]:checked').value] = parseFloat(heightInput.value);
     updateRectangleHeight();
   });
 
-  // Update the height when the unit changes.
-  unitSelect.addEventListener('change', setDefaultHeight);
-
-  // Set initial height.
+  // Initial height setup
   setDefaultHeight();
 </script>
 
